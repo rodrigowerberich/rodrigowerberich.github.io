@@ -9,7 +9,7 @@ shopt -s extglob
 dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 exe_cmd "rm -rf !(build|.gitignore|.nojekyll|publish-gh-pages.sh|.|..|.git)"
 exe_cmd "cd $dir/build"
-exe_cmd "bundle exec jekyll b"
+exe_cmd "JEKYLL_ENV=production bundle exec jekyll b"
 exe_cmd "cp -r _site/* ../"
 exe_cmd "cd .."
 exe_cmd "touch .nojekyll"
